@@ -14,6 +14,7 @@ services:
       - REDIS_URL=redis://redis:6379
     depends_on:
       - redis
+    entrypoint: ["deno","run",  "-A", "main.ts"]
 
   redis:
     image: redis:7-alpine
