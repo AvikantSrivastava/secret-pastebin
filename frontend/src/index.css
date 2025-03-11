@@ -1,0 +1,21 @@
+textarea,
+input {
+  color: #000;
+  background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  textarea,
+  input {
+    color: #000;
+    background-color: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  textarea,
+  input {
+    color: #213547;
+    background-color: #f9f9f9;
+  }
+}
