@@ -7,5 +7,5 @@ RUN deno cache main.ts
 
 USER deno
 EXPOSE 8000
-
+ENTRYPOINT [ "deno" ]
 CMD ["run", "-A", "main.ts"]]
