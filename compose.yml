@@ -23,13 +23,5 @@ services:
     volumes:
       - redis_data:/data
 
-  frontend-builder:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile.builder
-    container_name: password_frontend_builder
-    volumes:
-      - ./dist:/app/dist  # Export build artifacts to host
-
 volumes:
   redis_data:
