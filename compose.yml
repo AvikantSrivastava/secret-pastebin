@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    container_name: password_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    environment:
+      - PORT=8000
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:7-alpine
+    container_name: password_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  frontend-builder:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.builder
+    container_name: password_frontend_builder
+    volumes:
+      - ./dist:/app/dist  # Export build artifacts to host
+
+volumes:
+  redis_data:
