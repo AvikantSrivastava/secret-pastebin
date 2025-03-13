@@ -21,7 +21,7 @@ const CreateSecret = () => {
     setSlug("");
     setUrl("");
     try {
-      const res = await axios.post("http://localhost:8000/api/create", {
+      const res = await axios.post("https://avikant.com/paste-api/create", {
         secret,
         passphrase,
       });

@@ -10,7 +10,7 @@ const RetrieveSecret = ({ secretId }) => {
     setError("");
     try {
       const res = await axios.post(
-        `http://localhost:8000/api/secret/${secretId}`,
+        `https://avikant.com/paste-api/secret/${secretId}`,
         { passphrase },
       );
       setRetrievedSecret(res.data.secret);
