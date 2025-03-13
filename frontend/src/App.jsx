@@ -1,18 +1,23 @@
+import { BrowserRouter as Router, Routes, Route, useParams, Navigate } from "react-router-dom";
 import CreateSecret from "./CreateSecret";
 import RetrieveSecret from "./RetrieveSecret";
 
-const App = () => {
-  const isSecretPage = window.location.pathname.startsWith("/secret/");
-  const secretId = window.location.pathname.split("/").pop();
+const SecretPage = () => {
+  const { secretId } = useParams();
+  return <RetrieveSecret secretId={secretId} />;
+};
 
+const App = () => {
   return (
-    <div className="container mx-auto max-w-xl p-5">
-      {isSecretPage ? (
-        <RetrieveSecret secretId={secretId} />
-      ) : (
-        <CreateSecret />
-      )}
-    </div>
+    <Router basename="/sneak">
+      <div className="container mx-auto max-w-xl p-5">
+        <Routes>
+          <Route path="/" element={<CreateSecret />} />
+          <Route path="/secret/:secretId" element={<SecretPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

@@ -25,7 +25,7 @@ const CreateSecret = () => {
         secret,
         passphrase,
       });
-      setSlug(`/secret/${res.data.slug}`);
+      setSlug(`/sneak/secret/${res.data.slug}`);
     } catch (err) {
       setError(err.response?.data?.error || "Error creating secret.");
     }
