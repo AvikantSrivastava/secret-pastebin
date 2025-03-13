@@ -9,7 +9,7 @@ const SecretPage = () => {
 
 const App = () => {
   return (
-    <Router basename="/sneak">
+    <Router basename="/">
       <div className="container mx-auto max-w-xl p-5">
         <Routes>
           <Route path="/" element={<CreateSecret />} />
