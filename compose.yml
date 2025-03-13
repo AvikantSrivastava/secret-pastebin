@@ -14,7 +14,10 @@ services:
       - REDIS_URL=redis://redis:6379
     depends_on:
       - redis
-    entrypoint: ["deno","run",  "-A", "main.ts"]
+    entrypoint: ["deno", "run", "-A", "main.ts"]
+
+    networks:
+      - docker_shared_network
 
   redis:
     image: redis:7-alpine
@@ -26,3 +29,7 @@ services:
 
 volumes:
   redis_data:
+
+networks:
+  docker_shared_network:
+    external: true
