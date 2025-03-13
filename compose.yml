@@ -17,7 +17,7 @@ services:
     entrypoint: ["deno", "run", "-A", "main.ts"]
 
     networks:
-      - docker_shared_network
+      - nginx-config_docker_shared_network
 
   redis:
     image: redis:7-alpine
@@ -31,5 +31,5 @@ volumes:
   redis_data:
 
 networks:
-  docker_shared_network:
+  nginx-config_docker_shared_network:
     external: true
