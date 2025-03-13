@@ -30,7 +30,7 @@ app.use(async (ctx, next) => {
   await next();
 });
 
-router.post("/api/create", async (ctx) => {
+router.post("/create", async (ctx) => {
   const { secret, passphrase } = await ctx.request.body({ type: "json" }).value;
 
   if (!secret || !passphrase) {
@@ -49,7 +49,7 @@ router.post("/api/create", async (ctx) => {
   };
 });
 
-router.post("/api/secret/:id", async (ctx) => {
+router.post("/secret/:id", async (ctx) => {
   const { id } = ctx.params;
   const { passphrase } = await ctx.request.body({ type: "json" }).value;
 
