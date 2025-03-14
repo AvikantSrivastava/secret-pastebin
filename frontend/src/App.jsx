@@ -9,11 +9,11 @@ const SecretPage = () => {
 
 const App = () => {
   return (
-    <Router basename="/">
+    <Router basename="/sneak">
       <div className="container mx-auto max-w-xl p-5">
         <Routes>
           <Route path="/" element={<CreateSecret />} />
-          <Route path="/secret/:secretId" element={<SecretPage />} />
+          <Route path="secret/:secretId" element={<SecretPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
